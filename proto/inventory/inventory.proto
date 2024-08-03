@@ -1,0 +1,55 @@
+syntax = "proto3";
+
+package inventory;
+
+option go_package = "dealership/inventory";
+
+service InventoryService {
+  rpc AddCar(AddCarRequest) returns (AddCarResponse);
+  rpc GetCar(GetCarRequest) returns (Car);
+  rpc ListCars(ListCarsRequest) returns (ListCarsResponse);
+  rpc UpdateCarStock(UpdateCarStockRequest) returns (UpdateCarStockResponse);
+}
+
+
+message Car {
+  string id = 1;
+  string make = 2;
+  string model = 3;
+  int32 year = 4;
+  string color = 5;
+  string price = 6;
+  int32 stock = 7;
+
+}
+
+message AddCarRequest {
+  Car car= 1;
+}
+
+message AddCarResponse {
+  string id = 1;
+}
+
+message GetCarRequest {
+  string id = 1;
+}
+
+message ListCarsRequest {
+  int32 page_size = 1;
+  int32 page_number = 2;
+}
+
+message ListCarsResponse {
+  repeated Car car = 1;
+  int32 total_cars = 2;
+}
+
+message UpdateCarStockRequest {
+  string id = 1;
+  int32 stock_change = 2;
+}
+
+message UpdateCarStockResponse {
+  int32 new_stock = 1;
+}
