@@ -20,7 +20,6 @@ message Car {
   string color = 5;
   string price = 6;
   int32 stock = 7;
-
 }
 
 message AddCarRequest {
