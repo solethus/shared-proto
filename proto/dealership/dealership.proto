@@ -16,10 +16,34 @@ service DealershipService {
 message DealershipInfo {
   string id = 1;
   string name = 2;
-  string address = 3;
+  Address address = 3;
   string phone = 4;
   string email = 5;
-  repeated string working_hours = 6;
+  string website = 6;
+  repeated OperatingHours operating_hours = 7;
+  float rating = 8;
+  int32 review_count = 9;
+  bool isActive = 10;
+}
+
+message Address {
+  string street = 1;
+  string city = 2;
+  string postal_code = 3;
+  string country = 4;
+  GeoLocation coordinates = 5;
+}
+
+message OperatingHours {
+  string day_of_week = 1;
+  string open_time = 2;
+  string close_time = 3;
+  bool is_closed = 4;
+}
+
+message GeoLocation {
+  float latitude = 1;
+  float longitude = 2;
 }
 
 message GetDealershipInfoRequest {
