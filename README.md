@@ -1,4 +1,4 @@
-# Shared Proto
+# Shared Proto:
 
 This repository contains the Protocol Buffer definitions and generated code for the Dealership microservices system.
 
